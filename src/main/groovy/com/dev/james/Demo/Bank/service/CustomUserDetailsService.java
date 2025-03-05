@@ -1,4 +1,4 @@
-package com.dev.james.Demo.Bank.config;
+package com.dev.james.Demo.Bank.service;
 
 import com.dev.james.Demo.Bank.repository.UserRepository;
 import lombok.AllArgsConstructor;

@@ -5,6 +5,6 @@ import com.dev.james.Demo.Bank.entity.Transaction;
 
 
 public interface TransactionService {
-    void saveTransaction(TransactionDto transactionDto);
+    Transaction saveTransaction(TransactionDto transactionDto);
 
 }
