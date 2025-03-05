@@ -18,6 +18,14 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
+    /*
+    * The JwTokenProvider class has mainly 3 functions:
+    * 1. Generate a JWT token for each user that logs in.
+    * 2. Validate the token to make sure whether it is a valid one or
+    * it has expired.
+    * 3. Get the username (email) associated with the token provided.
+    * */
+
     @Value("${app.jwt-secret}")
     private String jwtSecret;
 

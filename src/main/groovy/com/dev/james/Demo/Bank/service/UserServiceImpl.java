@@ -139,7 +139,6 @@ public class UserServiceImpl implements UserService {
         }
         User user = userRepository.findByAccountNumber(request.getAccountNumber());
         return  user.getFirstName() + " " + user.getLastName() + " " + user.getOtherName();
-
     }
 
     @Override
@@ -254,8 +253,8 @@ public class UserServiceImpl implements UserService {
         }
 
         //if they do retrieve the accounts
-        User senderUser = userRepository.findByAccountNumber(request.getSenderAccountNum());
         User recepientUser = userRepository.findByAccountNumber(request.getRecipientAccountNum());
+        User senderUser = userRepository.findByAccountNumber(request.getSenderAccountNum());
 
         //check whether the sender's account has sufficient balance
         boolean isAmountEnough = senderUser.getAccountBalance().compareTo(BigDecimal.valueOf(request.getAmount())) < 0;
@@ -272,7 +271,6 @@ public class UserServiceImpl implements UserService {
                 senderUser.getAccountBalance().subtract(BigDecimal.valueOf(request.getAmount()))
         );
         userRepository.save(senderUser);
-
 
 
         //send email to source
@@ -332,7 +330,6 @@ public class UserServiceImpl implements UserService {
                 .messageBody("New login detected at " + loginTime.getTime() )
                 .build();
         emailService.sendEmailAlert(recipientEmailDetails);*/
-
 
         return BankResponse.builder()
                 .responseCode(AccountUtils.SUCCESS_CODE)
